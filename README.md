@@ -11,7 +11,9 @@
     
 ## Streams of bytes / characters
 ● Data may be represented either:–Binary (pdf, png, mp3, etc.) or–Text(txt, xml, json, etc.)
+
 ● I/O Streams are responsible with reading/writing data from/in external files.–InputStream, OutputStream → bytes (8 bits)–Reader, Writer → characters (16 bits)
+
 ● Depending on their job, streams are:–Primitive: FileReader, StringWriter, etc.–Decorators: BufferedReader, ObjectInputStream, etc.
 
 # The Item class
