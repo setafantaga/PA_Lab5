@@ -1,4 +1,4 @@
-# Compulsory 
+## Compulsory 
 
     Create an object-oriented model of the problem. You should have at least the following classes: Catalog and two item classes at your choice. Consider using an interface or an abstract class in order to describe the items in a catalog.
     Implement the following methods representing commands that will manage the content of the catalog:
@@ -9,12 +9,13 @@
         load: loads the catalog from an external file. 
     The application will signal invalid data (year, path, etc.) using a custom exception. 
     
-# Streams of bytes / characters
+## Streams of bytes / characters
 ● Data may be represented either:–Binary (pdf, png, mp3, etc.) or–Text(txt, xml, json, etc.)
 ● I/O Streams are responsible with reading/writing data from/in external files.–InputStream, OutputStream → bytes (8 bits)–Reader, Writer → characters (16 bits)
 ● Depending on their job, streams are:–Primitive: FileReader, StringWriter, etc.–Decorators: BufferedReader, ObjectInputStream, etc.
 
 # The Item class
+```python
 public abstract class Item implements Serializable {
     private String id;
     private String name;
@@ -34,8 +35,10 @@ public abstract class Item implements Serializable {
         return null;
     }
 }
+```
     
 # The Catalog class
+```python
 public class Catalog implements Serializable {
     private String name;
     private String path;
@@ -45,8 +48,10 @@ public class Catalog implements Serializable {
     }
     public Item findById(String id) {//...}
 }
+```
     
 # The CatalogUtil class
+```python
 public class CatalogUtil {
     public static void save(Catalog catalog) throws IOException {
         try (var oos = new ObjectOutputStream(new FileOutputStream(catalog.getPath()))) {
@@ -64,8 +69,10 @@ public class InvalidCatalogException extends Exception {
         super("Invalid catalog file.", ex);
     }
 }
+```
 
 # The Main Class
+```python
 public class Main {public static void main(String args[]) {
     Main app = new Main();
     app.testCreateSave();
@@ -85,3 +92,4 @@ private void testLoadView() {
     Catalog catalog = CatalogUtil.load("d:/java/catalog.ser");
     CatalogUtil.view(catalog.findById("bestSong"));
 }
+```
